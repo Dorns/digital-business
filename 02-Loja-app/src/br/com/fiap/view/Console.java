@@ -5,17 +5,24 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.fiap.bo.EstoqueBO;
 import br.com.fiap.config.PropertySingleton;
 import br.com.fiap.to.ProdutoTO;
 
 /***
- * @author Thiago Yamamoto
+ * @author Felipe Dornelas Viel
  * @version 1.0
  */
 public class Console {
+	
+	private static Logger log = LoggerFactory.getLogger(Console.class);
 
 	public static void main(String[] args) {
+		
+		log.warn("Início da aplicação");
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -29,12 +36,13 @@ public class Console {
 		
 		System.out.println(loja + "          " + sdf.format(dataHoje.getTime()));
 		System.out.println("******************************");
-		System.out.print("Digite o código:");
+		System.out.print("Digite o código: ");
 		//Lê o código inserido pelo usuário
 		int codigo = scanner.nextInt();
 		
 		EstoqueBO bo = new EstoqueBO();
 		ProdutoTO produto = bo.consultarProduto(codigo);
+		log.debug("Pesquisando o produto: " + codigo);
 		
 		if (produto != null){
 			System.out.println(produto.getDescricao());
@@ -44,9 +52,12 @@ public class Console {
 			DecimalFormat format = new DecimalFormat("R$ #,###.00");
 			System.out.println(format.format(produto.getPreco()));
 		}else{
+			log.error("Produto Inexistente");
 			System.out.println("Produto não cadastrado!");
 		}
 		scanner.close();
+		
+		log.warn("Fim da aplicação");
 	}
 	
 }

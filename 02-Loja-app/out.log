@@ -1,0 +1,16 @@
+2017-02-17 19:39:10 WARN  Console:25 - Início da aplicação
+2017-02-17 19:39:18 DEBUG Console:45 - Pesquisando o produto: br.com.fiap.to.ProdutoTO@7c3df479
+2017-02-17 19:39:18 WARN  Console:60 - Fim da aplicação
+2017-02-17 19:39:25 WARN  Console:25 - Início da aplicação
+2017-02-17 19:39:28 DEBUG Console:45 - Pesquisando o produto: br.com.fiap.to.ProdutoTO@7c3df479
+2017-02-17 19:39:28 WARN  Console:60 - Fim da aplicação
+2017-02-17 19:39:32 WARN  Console:25 - Início da aplicação
+2017-02-17 19:39:34 DEBUG Console:45 - Pesquisando o produto: null
+2017-02-17 19:39:34 ERROR Console:55 - Produto Inexistente
+2017-02-17 19:39:34 WARN  Console:60 - Fim da aplicação
+2017-02-17 19:40:31 WARN  Console:25 - Início da aplicação
+2017-02-17 19:40:34 DEBUG Console:45 - Pesquisando o produto: br.com.fiap.to.ProdutoTO@7c3df479
+2017-02-17 19:40:34 WARN  Console:60 - Fim da aplicação
+2017-02-17 19:40:43 WARN  Console:25 - Início da aplicação
+2017-02-17 19:40:44 DEBUG Console:45 - Pesquisando o produto: 401
+2017-02-17 19:40:44 WARN  Console:60 - Fim da aplicação
