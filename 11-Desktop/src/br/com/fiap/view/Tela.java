@@ -10,6 +10,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import br.com.fiap.bo.CarroBOStub;
+import br.com.fiap.bo.CarroBOStub.Buscar;
+import br.com.fiap.bo.CarroBOStub.BuscarResponse;
 import br.com.fiap.bo.CarroBOStub.Cadastrar;
 import br.com.fiap.bo.CarroBOStub.Carro;
 
@@ -19,6 +21,7 @@ public class Tela {
 	private Text txtCor;
 	private Text txtPlaca;
 	private Text txtPreco;
+	private Text txtCodigo;
 
 	/**
 	 * Launch the application.
@@ -105,8 +108,58 @@ public class Tela {
 				
 			}
 		});
-		btnCadastrar.setBounds(256, 101, 75, 25);
+		btnCadastrar.setBounds(52, 205, 75, 25);
 		btnCadastrar.setText("Cadastrar");
+		
+		Label lblCdigo = new Label(shlCadastrarCarro, SWT.NONE);
+		lblCdigo.setBounds(251, 25, 55, 15);
+		lblCdigo.setText("C\u00F3digo");
+		
+		txtCodigo = new Text(shlCadastrarCarro, SWT.BORDER);
+		txtCodigo.setBounds(251, 46, 76, 21);
+		
+		Button btnBuscar = new Button(shlCadastrarCarro, SWT.NONE);
+		btnBuscar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				try {
+					//Instanciar o Stub
+					CarroBOStub stub = new CarroBOStub();
+				
+					//Recuperar o id que o usuario digitou
+					int codigo = Integer.parseInt(txtCodigo.getText());
+				
+					//Instanciar a classe (nome do método)
+					Buscar params = new Buscar();	
+					params.setCodigo(codigo);
+					
+					//Chamar o webservice aravés do stub
+					BuscarResponse resp = stub.buscar(params);
+									
+					//Recuperar o valor retornado pelo webservice
+					
+					Carro car = resp.get_return();
+					
+					if (resp.get_return() != null){
+						//Exibir o resultado
+						txtCor.setText(car.getCor());
+						txtPlaca.setText(car.getPlaca());
+						txtPreco.setText(Float.toString(car.getPreco()));			
+					}else{
+						txtCor.setText("Not Found");
+						txtPlaca.setText("Not Found");
+						txtPreco.setText("Not Found");
+					}
+					
+
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+
+			}
+		});
+		btnBuscar.setBounds(252, 82, 75, 25);
+		btnBuscar.setText("Buscar");
 
 	}
 }

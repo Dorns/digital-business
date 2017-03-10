@@ -1,0 +1,1 @@
+http://download.eclipse.org/windowbuilder/WB/release/4.6/
