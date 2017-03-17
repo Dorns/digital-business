@@ -34,10 +34,7 @@ public class ProdutoBO {
 		return new ArrayList<ProdutoTO>(banco.values());
 	}
 	
-	public void alterar(ProdutoTO produto){
+	public void atualizar(ProdutoTO produto){
 		banco.put(produto.getCodigo(), produto);
 	}
-	
-	
-	
 }
