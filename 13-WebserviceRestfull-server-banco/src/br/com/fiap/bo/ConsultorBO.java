@@ -1,5 +1,7 @@
 package br.com.fiap.bo;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -24,6 +26,14 @@ public class ConsultorBO {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public List<Consultor> listar(){
+		EntityManager em = fabrica.createEntityManager();
+		ConsultorDAO dao = new ConsultorDAOImpl(em);
+		List<Consultor> lista = dao.listar();
+		em.close();
+		return lista;
 	}
 
 	public Consultor buscar(int codigo) {

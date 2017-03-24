@@ -5,8 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
-
+@XmlRootElement
 @Entity
 @SequenceGenerator(name="seqConsultor", sequenceName="SQ_TB_CONSULTOR", allocationSize=1)
 public class Consultor {
@@ -23,7 +24,7 @@ public class Consultor {
 
 	public Consultor(int codigo, String nome, String cpf, String telefone) {
 		super();
-		this.codigo = codigo;
+		this.codigo = codigo; 
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
