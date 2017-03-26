@@ -13,7 +13,7 @@ import br.com.fiap.factory.EntityManagerFactorySingleton;
 public class CarroBO {
 	private EntityManagerFactory fabrica = EntityManagerFactorySingleton.getInstance();
 	
-	public void cadastrar (Carro carro){
+	public void cadastrar (Carro carro){ 
 		EntityManager em = fabrica.createEntityManager();
 		CarroDAO dao = new CarroDAOImpl(em);
 		dao.cadastrar(carro);
