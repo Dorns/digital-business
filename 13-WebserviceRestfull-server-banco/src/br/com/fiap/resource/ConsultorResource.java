@@ -20,6 +20,7 @@ import br.com.fiap.bo.ConsultorBO;
 import br.com.fiap.entity.Consultor;
 import br.com.fiap.exception.IdNotFoundException;
 
+@Path("/consultor")
 public class ConsultorResource {
 	private ConsultorBO bo = new ConsultorBO();
 	

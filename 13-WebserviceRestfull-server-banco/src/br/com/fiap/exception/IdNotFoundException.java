@@ -1,5 +1,6 @@
 package br.com.fiap.exception;
 
+@SuppressWarnings("serial")
 public class IdNotFoundException extends Exception {
 
 	public IdNotFoundException() {
