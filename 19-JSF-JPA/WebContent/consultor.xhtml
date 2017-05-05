@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>Consultor</title>
+</h:head>
+<body>
+	<div class="container">
+		<h1>#{consultorBean.consultor.codigo==0?"Cadastro ":"Atualizar "}de Consultor</h1>
+		<h:form>
+			<h:inputHidden value="#{consultorBean.consultor.codigo}" />
+			<h:messages errorClass="alert alert-danger"
+				infoClass="alert alert-success" />
+			<!-- Nome, CPF e Telefone -->
+			<div class="form-group">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText value="#{consultorBean.consultor.nome}" id="nome"
+					styleClass="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="CPF" for="cpf" />
+				<h:inputText value="#{consultorBean.consultor.cpf}" id="cpf"
+					styleClass="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Telefone" for="tel" />
+				<h:inputText value="#{consultorBean.consultor.telefone}" id="tel"
+					styleClass="form-control" />
+			</div>
+			<h:commandButton action="#{consultorBean.cadastrar()}" value="Salvar"
+				styleClass="btn btn-primary" />
+			<h:link outcome="lista-consultor" styleClass="btn btn-primary" rendered="#{consultorBean.consultor.codigo!=0}">Voltar</h:link>
+		</h:form>
+	</div>
+</body>
+</html>
+
+
+
+
+

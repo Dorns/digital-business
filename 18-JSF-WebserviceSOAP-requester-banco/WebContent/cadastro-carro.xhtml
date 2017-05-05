@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head> 
+<body> 
+
+<div class="container">
+	<h2>Busca de Carro</h2>
+	<h:form styleClass="form-inline">
+		<h:outputLabel value="Código" for="codigo" />
+		<h:inputText value="#{carroBean.carro.codigo}" id="codigo" styleClass="form-control"/>
+		<h:commandButton action="#{carroBean.buscar()}" value="Buscar" 
+									  styleClass="btn btn-success" />
+	</h:form>
+	<h1>Cadastro de Carro</h1>
+	<h:messages />
+	<h:form>
+		<div class="form-group">
+			<h:outputLabel value="Placa" for="placa" />
+			<h:inputText value="#{carroBean.carro.placa}" id="placa" styleClass="form-control"/>
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Cor" for="cor" />
+			<h:inputText value="#{carroBean.carro.cor}" id="cor" styleClass="form-control"/>
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Preço" for="preco" />
+			<h:inputText value="#{carroBean.carro.preco}" id="preco" styleClass="form-control"/>
+		</div>
+		<h:commandButton action="#{carroBean.cadastrar()}" value="Cadastrar" styleClass="btn btn-primary" />
+	</h:form>
+
+</div>
+
+</body> 
+</html>
